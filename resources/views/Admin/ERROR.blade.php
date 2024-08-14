@@ -4,7 +4,7 @@
 
     <title>
         
-        ERROR
+        405 Methode not authorized
     </title>
 
     <!-- Fonts -->

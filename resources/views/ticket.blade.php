@@ -92,7 +92,7 @@ https://templatemo.com/tm-583-festava-live
                         </li>
                     </ul>
 
-                    <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Achat ticket</a>
+                    <a href="/ticket" class="btn custom-btn d-lg-block d-none">Achat ticket</a>
                 </div>
             </div>
         </nav>
@@ -107,9 +107,17 @@ https://templatemo.com/tm-583-festava-live
                     <div class="col-lg-6 col-10 mx-auto">
                         <form class="custom-form ticket-form mb-5 mb-lg-0" action="/billet" method="POST">
                             @csrf
-                            
+                            @if(Session::has('success'))
+                <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if (Session::has('fail'))
+                    
+                <div class="alert alert-error">{{Session::get('fail')}}</div>
+                    @endif
+                
+                
                             <h2 class="text-center mb-4">Commencé ici!</h2>
-                            <p style="font-size: 13px">(Toute les informations collecté sont utilisé par notre équipe pour validé votre commande <br>Aucun information ne sera partagé ailleurs)</p>
+                            <p style="font-size: 13px">(Toute les informations collecté seront utilisé par notre équipe pour validé votre commande <br>Aucun information ne sera partagé ailleurs)</p>
 
                             <div class="ticket-form-body">
                                 <div class="row">
@@ -160,7 +168,7 @@ https://templatemo.com/tm-583-festava-live
                                     class="form-control" placeholder="Nombre de ticket" required="">
                                     <span class="text-danger">@error('Ticket') {{ $message }} @enderror </span>
 
-                                <textarea name="demande" rows="3" class="form-control" 
+                                <textarea name="demande" rows="3" class="form-control" value="0"
                                     id="ticket-form-message" placeholder="Requête spécifique? (Merci de mettre un '0' si aucun)"></textarea>
 
                                 <div class="col-lg-4 col-md-10 col-8 mx-auto">

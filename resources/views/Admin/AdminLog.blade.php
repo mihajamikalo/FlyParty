@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="fr">
 
@@ -9,6 +11,8 @@
     <meta name="author" content="">
 
     <title>Fly Admin Login</title>
+
+    <link rel="shortcut icon" href="/shield-lock.svg" type="image/x-icon">
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +35,6 @@ https://templatemo.com/tm-583-festava-live
 -->
 
 </head>
-
 <body>
 
     <main>

@@ -27,13 +27,22 @@ class BilletController extends Controller
         ]);
       $recorded= billet::create($BilletInfo);
       if ($recorded){
-        return redirect('/');
+        return back()->with('success', 'Vôtre achat a été enregistrer,Vous allez recevoir une confirmation par email' );
       }
       else{
-        return view('Admin.ERROR');
+        return back()->with('fail','Erreur serveeur, veuillez ressayer plus tard');
       }
 
     }
+    public function destroy($id){
+      $post = Billet::find($id);
+      if($post){
+        $post->delete();
+        return redirect('/Dashboard');
+      }else{
+        return redirect('/Error');
+      }
+ }
 
 };
 

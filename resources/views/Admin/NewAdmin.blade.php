@@ -5,30 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/templatemo-festava-live.css" rel="stylesheet">
 </head>
     <style>
+      body{
+        background-color: rgb(18 17 17 / 87%);
+      }
         .container{
+            margin-top: 50px;
             max-width: 600px;
-            margin: 0 auto;
-            padding: 50px;
+            padding: 70px;
             box-shadow: #495057 0px 7px 29px 0px;
             border-radius: 6px;
-            background-color: #d6922b;
+            background-color: #1e1e22;
         }
        
         .form-group{
             margin: 30px;
         }
-        
+        input.btn.btn-success{
+          width: 400px;
+          height: auto;
+        }
+        h2.header{
+          color: rgb(19, 162, 210);
+          font-size: 30px;
+        }
+        input{
+          height: 40px;
+        }
     </style>
 
 <body>
-  <a class="btn btn-primary" href="/Dashboard" role="button">Go Back</a>
+  <nav class="navbar bg-warning navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/Dashboard">Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active " aria-current="page" href="/AdminNew">New Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/rapportAdmin">Rapport</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/message">Admin</a>
+          </li>
+        </ul>
+        <a class="btn btn-danger" href="/logout" role="button">Logout</a>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+ 
     <div class="container">
         <form action="/register" method="post">
             @csrf
-            <center><h2><pre>Admin <br>Registration</h2></center>
+            <center><h2 class="header"><pre>Admin <br>Registration</h2></center>
 
             <div class="form-group mb-3">
                 <input type="text" name="name" required="required" class="form-control"  placeholder="Nom">
@@ -45,10 +87,11 @@
                 <div class="form-group mb-3">
                     <input type="text" name="code" required="required" autocomplete="off" class="form-control"  placeholder="Code Admin existant">
               </div>
-
+              <center>
               <div class="form-group">
                <input type="submit" class="btn btn-success" value="Register">
               </div>
+            </center>
         </form>
         <hr>
         <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">

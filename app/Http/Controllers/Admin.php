@@ -11,12 +11,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Symfony\Contracts\Service\Attribute\Required;
+use App\Models\mess;
 use Session;
 
 class Admin extends Controller
 {
     public function AdminLogin() {
         return view('Admin.AdminLog');
+        
     }
 
     
@@ -29,29 +31,49 @@ class Admin extends Controller
    $user = Admins::where('name', '=' , $request->name)->first();
    if ($user){
     if (Hash::check($request->password, $user->password) ) {
-        $request->session()->put('loginId', $user->id);
-        return redirect('Dashboard');
-
+        session_start();
+        $data = session(['loged' => 'loged']);
+        session(['Author' => $user->name]);
+        //$billets = Billet::all();
+         return redirect('/Dashboard');
     } else {
         return back()->with('fail','Le mot de passe est incorrecte');
     }
 }
     else {
-        return back()->with('fail','Nom Inconnu');
+        return back()->with('fail','Nom Inconnu'); 
     
    };
 
     
 }
         public function Dashboard() {
-            $billets = Billet::all();
-            return view('Admin.Dashboard', ['billets' => $billets ] );  
-        }
+         $set = session('loged');
+         if ($set) {
+            $ticket = Billet::all();
+           
+            return view('Admin.Dashboard', ['billets' => $ticket ] );
+         } else {
+            session()->forget('loged');
+            return view('Admin.AdminLog');
+         };
+    }
 
     public function error(){
         return view('Admin.ERROR');
     }
 
+    public function RegisterAdmin(){
+        //Must be added into all function in the Admin page panel
+      $set = session('loged');
+      
+        if($set){
+            return view('Admin.NewAdmin');
+        }else{
+            return redirect('/srsAdmin');
+        }
+        //end of the important statement
+    }
 
     public function register(Request $request){
            $admins = $request->validate([
@@ -61,17 +83,19 @@ class Admin extends Controller
             ]);
             $admins ['password'] = bcrypt($admins['password']);
             Admins::create($admins);
-            
             return redirect('Dashboard');
     }
 
-    public function rapport(Request $request){
-        return view('Admin.Rapport');
-    }
+   
 
     public function Logout(){
-        auth()->logout();
+        session()->flush();
         return redirect("/srsAdmin");
     }
 
+    public function message(){
+        return view('Admin.RapportAdmin');
+    }
+
+   
 }

@@ -41,6 +41,7 @@ class Rapport extends Controller
         $message = mess::find($id_mess);
         if($message){
             $message->delete();
+            return back()->with('succes', );
         }
         return redirect('/message');
         

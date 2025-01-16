@@ -13,5 +13,6 @@ class mess extends Model
     'Titre',
     'Author',
     'Rapport',
-    'date',];
+    'date',
+];
 }

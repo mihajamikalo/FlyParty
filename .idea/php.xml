@@ -120,6 +120,9 @@
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/athlon1600/youtube-downloader" />
+      <path value="$PROJECT_DIR$/vendor/athlon1600/php-curl-file-downloader" />
+      <path value="$PROJECT_DIR$/vendor/athlon1600/php-curl-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

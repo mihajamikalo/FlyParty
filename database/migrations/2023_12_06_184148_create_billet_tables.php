@@ -33,7 +33,7 @@ class CreateBilletTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('billets');
+        //Schema::dropIfExists('billets');
     }
 }
 

@@ -39,6 +39,10 @@
         input{
           height: 40px;
         }
+        .profile{
+          color: white;
+          font-size: 17px;
+        }
     </style>
 
 <body>
@@ -59,6 +63,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/message">Admin</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/information">Modification</a>
+          </li>
         </ul>
         <a class="btn btn-danger" href="/logout" role="button">Logout</a>
       </div>
@@ -68,7 +75,7 @@
   <br>
  
     <div class="container">
-        <form action="/register" method="post">
+        <form action="/register" method="post" >
             @csrf
             <center><h2 class="header"><pre>Admin <br>Registration</h2></center>
 
@@ -84,9 +91,14 @@
               <div class="form-group">
                 <input type="password" name="password" required="required" class="form-control" id="floatingPassword" placeholder="Password">
               </div>
-                <div class="form-group mb-3">
-                    <input type="text" name="code" required="required" autocomplete="off" class="form-control"  placeholder="Code Admin existant">
+              <div class="form-group">
+                <input type="text" name="role" required="required" class="form-control" id="floatingPassword" placeholder="Admin Rôle">
               </div>
+              <!--
+                <div class="form-group mb-3">
+                  <label class="profile" for="image">Please choose profil image :</label> <br> <br>
+                    <input type="file" name="image" required="required"  class="form-control"  placeholder="Votre profil picture">
+              </div> -->
               <center>
               <div class="form-group">
                <input type="submit" class="btn btn-success" value="Register">
@@ -94,9 +106,7 @@
             </center>
         </form>
         <hr>
-        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            C'est quoi un code Admin existant?
-          </button>
+       
           
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

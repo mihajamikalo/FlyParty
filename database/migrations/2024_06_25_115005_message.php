@@ -13,12 +13,14 @@ class Message extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('Mess')) {
         Schema::create('Mess', function (Blueprint $table) {
            $table->string('Titre');
            $table->string('Author');
            $table->text('Rapport');
            $table->text('date');});
     }
+}
 
     /**
      * Reverse the migrations.

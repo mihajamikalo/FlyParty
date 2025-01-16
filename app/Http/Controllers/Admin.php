@@ -28,10 +28,12 @@ class Admin extends Controller
         'password' => 'required',
         
     ]);
+
+    
    $user = Admins::where('name', '=' , $request->name)->first();
    if ($user){
     if (Hash::check($request->password, $user->password) ) {
-        session_start();
+        
         $data = session(['loged' => 'loged']);
         session(['Author' => $user->name]);
         //$billets = Billet::all();
@@ -79,14 +81,15 @@ class Admin extends Controller
            $admins = $request->validate([
                 'name' => 'required',
                 'email' => 'required',
-                'password' => 'required'
+                'password' => 'required',
+                'role' => 'required'
             ]);
             $admins ['password'] = bcrypt($admins['password']);
             Admins::create($admins);
             return redirect('Dashboard');
     }
 
-   
+       
 
     public function Logout(){
         session()->flush();
@@ -94,8 +97,20 @@ class Admin extends Controller
     }
 
     public function message(){
-        return view('Admin.RapportAdmin');
+        $set = session('loged');
+      
+        if($set){
+            return view('Admin.RapportAdmin');
+        }else{
+            return redirect('/srsAdmin');
+        }
+
+        
     }
+    public function modify(){
+        return view('Admin.modify');
+    }
+
 
    
 }

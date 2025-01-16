@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Billet;
 use Illuminate\Http\Request;
 use PhpParser\Node\NullableType;
+use Session;
 
 class BilletController extends Controller
 {
     public function index(){
         return view('index');
+       
     }
 
     public function tick(){
@@ -25,17 +27,20 @@ class BilletController extends Controller
             'NbrTicket' => 'required',
             'demande' => '',
         ]);
-      $recorded= billet::create($BilletInfo);
+      $recorded= Billet::create($BilletInfo);
       if ($recorded){
         return back()->with('success', 'Vôtre achat a été enregistrer,Vous allez recevoir une confirmation par email' );
+        
       }
       else{
-        return back()->with('fail','Erreur serveeur, veuillez ressayer plus tard');
+        return back()->with('fail','Erreur serveur, veuillez ressayer plus tard');
       }
 
     }
     public function destroy($id){
       $post = Billet::find($id);
+      
+  
       if($post){
         $post->delete();
         return redirect('/Dashboard');

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/update',[Rapport::class,'modification']);
 Route::get('/',[BilletController::class, 'index']);
 Route::get('/ticket',[BilletController::class,'tick']);
 Route::post('/billet', [BilletController::class, 'billet']);
@@ -32,9 +33,9 @@ Route::get('/message',[Rapport::class, 'message']);
 Route::delete("delete/{id}",[Rapport::class, "delete" ]);
 Route::delete("destroy/{id}", [BilletController::class, "destroy"]);
 Route::get('/information',[Admin::class,'modify']);
+Route::post('/updateMessage',[Rapport::class,'updateMess']);
+
+
 
 ?>
-
-
-
 

@@ -23,7 +23,7 @@ class Admin extends Controller
 
     
     public function Login(Request $request){
-  $data = $request->validate([
+     $request->validate([
         'name' => 'required',
         'password' => 'required',
         
@@ -80,11 +80,12 @@ class Admin extends Controller
     public function register(Request $request){
            $admins = $request->validate([
                 'name' => 'required',
-                'email' => 'required',
-                'password' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:7|max:20',
                 'role' => 'required'
             ]);
-            $admins ['password'] = bcrypt($admins['password']);
+           // $admins ['password'] = bcrypt($admins['password']);
+           Hash::make($admins['password']);
             Admins::create($admins);
             return redirect('Dashboard');
     }
@@ -93,6 +94,7 @@ class Admin extends Controller
 
     public function Logout(){
         session()->flush();
+        session()->regenerate();
         return redirect("/srsAdmin");
     }
 

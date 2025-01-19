@@ -122,29 +122,29 @@
           <br>
           <br>
           <div class="col-lg-6 col-10 mx-auto">
-            <form class="custom-form ticket-form mb-5 mb-lg-0" action="/rapport" method="POST">
+            <form class="custom-form ticket-form mb-5 mb-lg-0" action="/updateMessage" method="POST">
                 @csrf
+               @method('POST')
                
-               
-                <h2 class="text-center mb-4">RAPPORT</h2>
-                  @if(Session::has('success'))
+                <h2 class="text-center mb-4">RAPPORT UPDATE</h2>
+                  @if(Session::has('succes'))
                 <div class="alert alert-success">{{Session::get('success')}}</div>
                 @endif
                 @if(Session::has('fail'))
-                <div class="alert alert-danger">{{(Session::get('fail'))}}</div>
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
                 @endif
                 <div class="mb-3">
                     <label for="formGroupExampleInput" class="form-label">Titre</label>
-                    <input type="text" name="Titre" class="form-control" id="formGroupExampleInput" max="20" min="5" placeholder="Titre" value="{{old('name')}}">
+                    <input type="text" name="Titre" class="form-control" id="formGroupExampleInput" max="20" min="5" placeholder="Titre" value="{{$value->Titre}}">
                   </div>
                     <input type="text" name="Author" value="{{Session::get('Author')}}" style="display: none" >
                   <div class="mb-3">
                     <label for="Rapport" class="form-label">Rapport</label>
-                    <textarea placeholder="Vôtre Rapport" name="Rapport" id="form-control" ></textarea>
+                    <textarea placeholder="Vôtre Rapport" name="Rapport" id="form-control" >{{$value->Rapport}}</textarea>
                   
                   </div>
-                  
-                  <input type="hidden" name="date" value="{{date("d-m-Y")}}" style="" >
+                  <input type="hidden" name="id_mess" value="{{$value->id}}" style="" >
+                  <input type="hidden" name="date" value="{{$value->date}}" style="" >
                     <div class="col-lg-4 col-md-10 col-8 mx-auto">
                         <button type="submit" class="form-control">Send</button>
                     </div>

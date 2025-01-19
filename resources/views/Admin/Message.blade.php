@@ -90,11 +90,20 @@
  .card-title{
   border: solid 1px;
  }
+ .action{
+  display: flex;
+  flex-direction:block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: center;
+  padding-left: 100px;
+
+ }
 
 </style>
 
 <body>
-    <main>
+  
         
     
         <nav class="navbar bg-warning navbar-expand-lg bg-body-tertiary ">
@@ -124,31 +133,43 @@
           </nav>
 <br>
 <br>
-@foreach ($message as $messages )
+<main>
+@foreach ($messages as $message )
           
 
 <div class="card text-center">
     <div class="card-header">
-      <h3>{{$messages->Author}}</h3>
+      <h3>{{$message->Author}}</h3>
     </div>
     <div class="card-body">
       
-      <h5 class="card-title" style="color: rgb(30, 133, 181)" >{{$messages->Titre}}</h5><br>
-      <p class="card-text" style="color: rgb(241, 248, 249)" >{{$messages->Rapport}}</p>
+      <h5 class="card-title" style="color: rgb(30, 133, 181)" >{{$message->Titre}}</h5><br>
+      <p class="card-text" style="color: rgb(241, 248, 249)" >{{$message->Rapport}}</p>
     <br>
-      <form action="/delete/{{$messages->id}}" method="post">
+
+    <div class="action">
+
+      <form action="/update" method="post">
+      @csrf
+      <input type="hidden" name="id" value="{{$message->id}}"  >
+      <button type="submit" class="btn btn-outline-primary">modify</button>
+      </form>
+
+      <form action="/delete/{{$message->id}}" method="post">
         @csrf
         @method("DELETE")
-        <div class="butt">  <a href="/rapportAdmin" class="btn btn-outline-primary">Rapport</a>
         <button type="submit" class="btn btn-outline-danger">  Delete</button>
        
       </form> 
     </div>
-    </div>
+
+    
     <div class="card-footer text-body-secondary">
-     <h3 class="footer"> {{$messages->date}} </h3>
+     <h3 class="footer"> {{$message->date}} </h3>
     </div>
   </div>
+</div>
+</div>
   <br>
   @endforeach
     </main>

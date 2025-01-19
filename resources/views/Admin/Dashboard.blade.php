@@ -104,20 +104,20 @@
         </thead>
         <tbody>
           <?php $id = 1 ;?>
-           @foreach ($billets as $billets)
+           @foreach ($billets as $billet)
                 
            
           <tr class="text-center align-text-top" >
             <th scope="row"><?php echo $id ?></th>
-            <td>{{$billets->nom}}</td>
-            <td>{{$billets->email}}</td>
-            <td>{{$billets->phone}}</td>
-            <td>{{$billets->type}}</td>
-            <td>{{$billets->NbrTicket}}</td>
-            <td>{{$billets->demande}}</td>
-            <td>{{$billets->created_at}}</td>
+            <td>{{$billet->nom}}</td>
+            <td>{{$billet->email}}</td>
+            <td>{{$billet->phone}}</td>
+            <td>{{$billet->type}}</td>
+            <td>{{$billet->NbrTicket}}</td>
+            <td>{{$billet->demande}}</td>
+            <td>{{$billet->created_at}}</td>
             <?php $id++ ?>
-            <form action="/destroy/{{$billets->id}}" method="POST">
+            <form action="/destroy/{{$billet->id}}" method="POST">
               @csrf
               @method('DELETE')
             <td><button type="submit" class="btn btn-danger">Delete</button></td>

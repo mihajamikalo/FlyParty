@@ -115,7 +115,7 @@ https://templatemo.com/tm-583-festava-live
                 @endif
                 @if (Session::has('fail'))
                     
-                <div class="alert alert-error">{{Session::get('fail')}}</div>
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
                     @endif
                 
                 

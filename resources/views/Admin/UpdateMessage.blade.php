@@ -112,7 +112,7 @@
                     <a class="nav-link" href="/message">Admin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/information">Modification</a>
+                    <a class="nav-link" href="/account">Account</a>
                   </li>
                 </ul>
                 <a class="btn btn-danger" href="/logout" role="button">Logout</a>

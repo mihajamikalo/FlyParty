@@ -10,6 +10,7 @@ https://templatemo.com/tm-583-festava-live
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )             
 -----------------------------------------*/
+
 :root {
   --white-color:                  #ffffff;
   --primary-color:                #F8CB2E;
@@ -124,6 +125,15 @@ a:hover {
 b,
 strong {
   font-weight: var(--font-weight-bold);
+}
+#logout{
+  font-size: 20px;
+  width: 90px;
+  background-color: rgb(233, 42, 35) ;
+  border: 1px solid ;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 30px;
 }
 
 .link-fx-1 {

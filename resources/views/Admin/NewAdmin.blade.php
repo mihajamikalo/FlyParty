@@ -29,8 +29,9 @@
             margin: 30px;
         }
         input.btn.btn-success{
-          width: 400px;
+          width: 100%;
           height: auto;
+          padding: 10px
         }
         h2.header{
           color: rgb(19, 162, 210);
@@ -64,7 +65,7 @@
             <a class="nav-link" href="/message">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/information">Modification</a>
+            <a class="nav-link" href="/account">Account</a>
           </li>
         </ul>
         <a class="btn btn-danger" href="/logout" role="button">Logout</a>
@@ -78,21 +79,27 @@
         <form action="/register" method="post" >
             @csrf
             <center><h2 class="header"><pre>Admin <br>Registration</h2></center>
-
+              @if(Session::has('success'))
+              <div class="alert alert-success">{{Session::get('success')}}</div>
+              @endif
+              @if(Session::has('fail'))
+              <div class="alert alert-danger">{{(Session::get('fail'))}}</div>
+              @endif
             <div class="form-group mb-3">
-                <input type="text" name="name" required="required" class="form-control"  placeholder="Nom">
-               
+                <input type="text" name="name" required="required" class="form-control" value="{{old('name')}}" placeholder="Nom">
+                <span class="text-danger">@error('name') {{ $message }} @enderror </span>
               </div>
             
             <div class="form-group mb-3">
-                <input type="email" name="email" required="required" class="form-control"  placeholder="Email...">
-               
+                <input type="email" name="email" required="required" class="form-control" value="{{old('email')}}" placeholder="Email...">
+                <span class="text-danger">@error('email') {{ $message }} @enderror </span>
               </div>
               <div class="form-group">
-                <input type="password" name="password" required="required" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" name="password" required="required" class="form-control" value="{{old('password')}}" id="floatingPassword" placeholder="Password">
+                <span class="text-danger">@error('password') {{ $message }} @enderror </span>
               </div>
               <div class="form-group">
-                <input type="text" name="role" required="required" class="form-control" id="floatingPassword" placeholder="Admin Rôle">
+                <input type="text" name="role" required="required" class="form-control" value="{{old('role')}}" id="floatingPassword" placeholder="Admin Rôle">
               </div>
               <!--
                 <div class="form-group mb-3">

@@ -57,16 +57,17 @@
     color: rgb(237, 214, 40);
     margin: 3px;
   }
-  .message{
-    margin-right: 50%; 
-    margin-left: 30%;
+  /*form{
+    margin-right: auto; 
+    margin-left: auto;
     border: solid;
     border-color: orange;
     border-radius: 3px;
     align-items: center;
-    width: 10cm;
+    width: auto;
     align-content: center;
-  }
+    padding: 10px;
+  }*/
   hr{
     color: red;
   }
@@ -86,7 +87,9 @@
     width: 100%;
     height: auto;
   }
- 
+ nav{
+  width: 100%;
+ }
 </style>
 
 <body>
@@ -112,7 +115,7 @@
                     <a class="nav-link" href="/message">Admin</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/information">Modification</a>
+                    <a class="nav-link" href="/account">Account</a>
                   </li>
                 </ul>
                 <a class="btn btn-danger" href="/logout" role="button">Logout</a>

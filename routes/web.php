@@ -32,9 +32,8 @@ Route::post('/rapport', [Rapport::class, 'rapported']);
 Route::get('/message',[Rapport::class, 'message']);
 Route::delete("delete/{id}",[Rapport::class, "delete" ]);
 Route::delete("destroy/{id}", [BilletController::class, "destroy"]);
-Route::get('/information',[Admin::class,'modify']);
 Route::post('/updateMessage',[Rapport::class,'updateMess']);
-
+Route::get('/account',[Admin::class,'AccountInfo']);
 
 
 ?>

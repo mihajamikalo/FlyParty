@@ -79,15 +79,19 @@ class Admin extends Controller
 
     public function register(Request $request){
            $admins = $request->validate([
-                'name' => 'required',
-                'email' => 'required|email',
+                'name' => 'required |unique:admins,name',
+                'email' => 'required|email|unique:admins,email',
                 'password' => 'required|min:7|max:20',
                 'role' => 'required'
             ]);
            // $admins ['password'] = bcrypt($admins['password']);
            Hash::make($admins['password']);
-            Admins::create($admins);
-            return redirect('Dashboard');
+           $success = Admins::create($admins);
+            if($success){
+                return back()->with('success','Account registered');
+            }else{
+                return back()->with('fail',"Une erreur c'est produit");
+            }
     }
 
        
@@ -109,8 +113,9 @@ class Admin extends Controller
 
         
     }
-    public function modify(){
-        return view('Admin.modify');
+    public function AccountInfo(){
+        $data = Admins::where('name','=',session('Author'))->first();
+        return view('Admin.Accoun',['Info' => $data]);
     }
 
 

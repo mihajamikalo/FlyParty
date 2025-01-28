@@ -1,0 +1,96 @@
+body{
+    background-color: rgba(19, 18, 18, 0.861);
+    
+}
+
+h2.header{
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 32px;
+}
+
+h3.name{
+    color: aliceblue;
+    text-decoration: underline;
+    font-size: 24px;
+}
+
+p.userInfo{
+    color: aqua;
+    font-size: 18px;
+}
+.info{
+    border: 2px solid white;
+    width: 500px;
+    height: auto;
+    padding: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #1e1e22;
+    
+}
+.info-header{
+    border-bottom: 2px solid white;
+   
+}
+.info-body{
+    padding: 6px;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+
+.info-footer{
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+.btn-update{
+    font-size: 14px;
+    width: 90px;
+    background-color: rgb(35, 153, 233) ;
+    border: 1px solid ;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-delete{
+    font-size: 14px;
+    width: 110px;
+    background-color: rgb(233, 42, 35) ;
+    border: 1px solid ;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 30px;
+    color: white;
+   
+    
+    
+}
+
+.btn-delete:hover{
+    background-color: rgb(177, 11, 5) ;
+}
+
+.btn-update:hover{
+    background-color: rgb(8, 102, 165) ;
+}
+a.button{
+    text-decoration: none;
+    color: inherit;
+}
+#logout{
+    font-size: 20px;
+    width: 90px;
+    background-color: rgb(233, 42, 35) ;
+    border: 1px solid ;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 30px;
+}

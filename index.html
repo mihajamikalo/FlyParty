@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PDF</title>
+    <style>
+        
+        .about{
+            margin: 20px;
+            margin-left: auto;
+            width: 300px;
+            height: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="about">
+        <h2>FlyParty</h2>
+        <p>Confirmation achat de billet</p>
+        <p>Antananarivo le @php
+         echo(date('d') . "/" . date('m') . "/" . date('Y') );  
+        @endphp
+        </p>
+        <p>à Madame\Monsieur {{$user['nom']}}</p>
+        <p>{{$user['email']}}</p>
+    </div>
+    <br>
+    
+</body>
+</html>
